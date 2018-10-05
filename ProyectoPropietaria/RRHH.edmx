@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RRHHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RRHHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Candidatos">
           <Key>
             <PropertyRef Name="Id" />
@@ -53,19 +53,15 @@
           <Property Name="Salario" Type="float" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'RRHH.dbo.ExperienciaLaboral' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ExperienciaLaboral">
           <Key>
-            <PropertyRef Name="Empresa" />
-            <PropertyRef Name="Puesto" />
-            <PropertyRef Name="FechaInicio" />
-            <PropertyRef Name="FechaFinalizacion" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Empresa" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Puesto" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Empresa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Puesto" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FechaInicio" Type="date" Nullable="false" />
-          <Property Name="FechaFinalizacion" Type="date" Nullable="false" />
+          <Property Name="FechaFinalizacion" Type="date" />
         </EntityType>
         <EntityType Name="Idiomas">
           <Key>
@@ -92,19 +88,11 @@ warning 6002: The table/view 'RRHH.dbo.ExperienciaLaboral' does not have a prima
           <EntitySet Name="Capacitaciones" EntityType="Self.Capacitaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Idiomas" EntityType="Self.Idiomas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Puestos" EntityType="Self.Puestos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ExperienciaLaboral].[Empresa] AS [Empresa], 
-    [ExperienciaLaboral].[Puesto] AS [Puesto], 
-    [ExperienciaLaboral].[FechaInicio] AS [FechaInicio], 
-    [ExperienciaLaboral].[FechaFinalizacion] AS [FechaFinalizacion]
-    FROM [dbo].[ExperienciaLaboral] AS [ExperienciaLaboral]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RRHHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -156,6 +144,16 @@ warning 6002: The table/view 'RRHH.dbo.ExperienciaLaboral' does not have a prima
           <Property Name="Salario" Type="Double" Nullable="false" />
           <Property Name="Estado" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="ExperienciaLaboral">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaFinalizacion" Type="DateTime" Precision="0" />
+        </EntityType>
         <EntityType Name="Idiomas">
           <Key>
             <PropertyRef Name="Id" />
@@ -176,26 +174,14 @@ warning 6002: The table/view 'RRHH.dbo.ExperienciaLaboral' does not have a prima
           <Property Name="Departamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Estado" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="ExperienciaLaboral">
-          <Key>
-            <PropertyRef Name="Empresa" />
-            <PropertyRef Name="Puesto" />
-            <PropertyRef Name="FechaInicio" />
-            <PropertyRef Name="FechaFinalizacion" />
-          </Key>
-          <Property Name="Empresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Puesto" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FechaFinalizacion" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
         <EntityContainer Name="RRHHEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Candidatos" EntityType="Self.Candidatos" />
           <EntitySet Name="Capacitaciones" EntityType="Self.Capacitaciones" />
           <EntitySet Name="Departamento" EntityType="Self.Departamento" />
           <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+          <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" />
           <EntitySet Name="Idiomas" EntityType="Self.Idiomas" />
           <EntitySet Name="Puestos" EntityType="Self.Puestos" />
-          <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -255,6 +241,17 @@ warning 6002: The table/view 'RRHH.dbo.ExperienciaLaboral' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ExperienciaLaboral">
+            <EntityTypeMapping TypeName="RRHHModel.ExperienciaLaboral">
+              <MappingFragment StoreEntitySet="ExperienciaLaboral">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Idiomas">
             <EntityTypeMapping TypeName="RRHHModel.Idiomas">
               <MappingFragment StoreEntitySet="Idiomas">
@@ -274,16 +271,6 @@ warning 6002: The table/view 'RRHH.dbo.ExperienciaLaboral' does not have a prima
                 <ScalarProperty Name="SalarioMaximo" ColumnName="SalarioMaximo" />
                 <ScalarProperty Name="Departamento" ColumnName="Departamento" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ExperienciaLaboral">
-            <EntityTypeMapping TypeName="RRHHModel.ExperienciaLaboral">
-              <MappingFragment StoreEntitySet="ExperienciaLaboral">
-                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
-                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
-                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-                <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

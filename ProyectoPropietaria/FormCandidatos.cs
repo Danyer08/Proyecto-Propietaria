@@ -126,6 +126,23 @@ namespace ProyectoPropietaria
 
 
         }
+
+        private void metroButtonCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void metroButtonCapacitaciones_Click(object sender, EventArgs e)
+        {
+            var capacitacion = new FormCapacitaciones();
+            capacitacion.ShowDialog();
+        }
+
+        private void metroButtonExperiencia_Click(object sender, EventArgs e)
+        {
+            var experiencia = new FormExperienciaLaboral();
+            experiencia.ShowDialog();
+        }
     }
    
 }

@@ -16,7 +16,7 @@ namespace ProyectoPropietaria
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCandidatos());
+            Application.Run(new FormMainMenu());
         }
     }
 }

@@ -165,6 +165,11 @@ namespace ProyectoPropietaria
                 Refrescar();
             }
         }
+
+        private void metroButtonCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 

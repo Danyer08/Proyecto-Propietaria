@@ -43,6 +43,7 @@
             this.metroTextBuscar = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelId = new MetroFramework.Controls.MetroLabel();
+            this.metroButtonClose = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridDepartamentos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,7 +181,7 @@
             // 
             // metroButtonBuscar
             // 
-            this.metroButtonBuscar.Location = new System.Drawing.Point(395, 292);
+            this.metroButtonBuscar.Location = new System.Drawing.Point(264, 291);
             this.metroButtonBuscar.Name = "metroButtonBuscar";
             this.metroButtonBuscar.Size = new System.Drawing.Size(75, 23);
             this.metroButtonBuscar.TabIndex = 8;
@@ -203,7 +204,7 @@
             this.metroTextBuscar.CustomButton.UseSelectable = true;
             this.metroTextBuscar.CustomButton.Visible = false;
             this.metroTextBuscar.Lines = new string[0];
-            this.metroTextBuscar.Location = new System.Drawing.Point(151, 292);
+            this.metroTextBuscar.Location = new System.Drawing.Point(24, 292);
             this.metroTextBuscar.MaxLength = 32767;
             this.metroTextBuscar.Name = "metroTextBuscar";
             this.metroTextBuscar.PasswordChar = '\0';
@@ -237,11 +238,22 @@
             this.metroLabelId.Text = ".";
             this.metroLabelId.Click += new System.EventHandler(this.metroLabelId_Click);
             // 
+            // metroButtonClose
+            // 
+            this.metroButtonClose.Location = new System.Drawing.Point(502, 291);
+            this.metroButtonClose.Name = "metroButtonClose";
+            this.metroButtonClose.Size = new System.Drawing.Size(75, 23);
+            this.metroButtonClose.TabIndex = 12;
+            this.metroButtonClose.Text = "Cerrar";
+            this.metroButtonClose.UseSelectable = true;
+            this.metroButtonClose.Click += new System.EventHandler(this.metroButtonClose_Click);
+            // 
             // FormDepartamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 538);
+            this.Controls.Add(this.metroButtonClose);
             this.Controls.Add(this.metroLabelId);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroTextBuscar);
@@ -277,6 +289,7 @@
         private MetroFramework.Controls.MetroTextBox metroTextBuscar;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabelId;
+        private MetroFramework.Controls.MetroButton metroButtonClose;
     }
 }
 

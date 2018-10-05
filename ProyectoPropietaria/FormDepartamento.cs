@@ -125,5 +125,10 @@ namespace ProyectoPropietaria
         {
             
         }
+
+        private void metroButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

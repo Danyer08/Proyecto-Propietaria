@@ -14,9 +14,10 @@ namespace ProyectoPropietaria
     
     public partial class ExperienciaLaboral
     {
+        public int Id { get; set; }
         public string Empresa { get; set; }
         public string Puesto { get; set; }
         public System.DateTime FechaInicio { get; set; }
-        public System.DateTime FechaFinalizacion { get; set; }
+        public Nullable<System.DateTime> FechaFinalizacion { get; set; }
     }
 }

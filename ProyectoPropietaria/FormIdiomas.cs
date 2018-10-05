@@ -117,5 +117,10 @@ namespace ProyectoPropietaria
         {
             ConsultaFlexible();
         }
+
+        private void metroButtonCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

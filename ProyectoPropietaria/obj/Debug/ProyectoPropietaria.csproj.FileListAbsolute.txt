@@ -38,3 +38,6 @@ C:\Users\Danyer\Desktop\Git\Propietaria\Proyecto-Propietaria\ProyectoPropietaria
 C:\Users\Danyer\Desktop\Git\Propietaria\Proyecto-Propietaria\ProyectoPropietaria\obj\Debug\ProyectoPropietaria.pdb
 C:\Users\Danyer\Desktop\Git\Propietaria\Proyecto-Propietaria\ProyectoPropietaria\obj\Debug\ProyectoPropietaria.FormIdiomas.resources
 C:\Users\Danyer\Desktop\Git\Propietaria\Proyecto-Propietaria\ProyectoPropietaria\obj\Debug\ProyectoPropietaria.FormCandidatos.resources
+C:\Users\Danyer\Desktop\Git\Propietaria\Proyecto-Propietaria\ProyectoPropietaria\obj\Debug\ProyectoPropietaria.FormMainMenu.resources
+C:\Users\Danyer\Desktop\Git\Propietaria\Proyecto-Propietaria\ProyectoPropietaria\obj\Debug\ProyectoPropietaria.FormExperienciaLaboral.resources
+C:\Users\Danyer\Desktop\Git\Propietaria\Proyecto-Propietaria\ProyectoPropietaria\obj\Debug\ProyectoPropietaria.FormEmpleados.resources

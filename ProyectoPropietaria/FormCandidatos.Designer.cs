@@ -46,8 +46,6 @@
             this.metroTextCedula = new MetroFramework.Controls.MetroTextBox();
             this.metroTextSalario = new MetroFramework.Controls.MetroTextBox();
             this.metroTextCompetencias = new MetroFramework.Controls.MetroTextBox();
-            this.metroTextCapacitaciones = new MetroFramework.Controls.MetroTextBox();
-            this.metroTextExperiencia = new MetroFramework.Controls.MetroTextBox();
             this.metroTextRecomendacion = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBuscar = new MetroFramework.Controls.MetroTextBox();
             this.metroGridCandidatos = new MetroFramework.Controls.MetroGrid();
@@ -57,6 +55,9 @@
             this.metroButtonEliminar = new MetroFramework.Controls.MetroButton();
             this.metroComboPuesto = new MetroFramework.Controls.MetroComboBox();
             this.metroComboDepartamento = new MetroFramework.Controls.MetroComboBox();
+            this.metroButtonCerrar = new MetroFramework.Controls.MetroButton();
+            this.metroTextCapacitaciones = new MetroFramework.Controls.MetroTextBox();
+            this.metroTextExperiencia = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridCandidatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -279,66 +280,6 @@
             this.metroTextCompetencias.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextCompetencias.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroTextCapacitaciones
-            // 
-            // 
-            // 
-            // 
-            this.metroTextCapacitaciones.CustomButton.Image = null;
-            this.metroTextCapacitaciones.CustomButton.Location = new System.Drawing.Point(183, 1);
-            this.metroTextCapacitaciones.CustomButton.Name = "";
-            this.metroTextCapacitaciones.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextCapacitaciones.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextCapacitaciones.CustomButton.TabIndex = 1;
-            this.metroTextCapacitaciones.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextCapacitaciones.CustomButton.UseSelectable = true;
-            this.metroTextCapacitaciones.CustomButton.Visible = false;
-            this.metroTextCapacitaciones.Lines = new string[0];
-            this.metroTextCapacitaciones.Location = new System.Drawing.Point(477, 152);
-            this.metroTextCapacitaciones.MaxLength = 32767;
-            this.metroTextCapacitaciones.Name = "metroTextCapacitaciones";
-            this.metroTextCapacitaciones.PasswordChar = '\0';
-            this.metroTextCapacitaciones.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextCapacitaciones.SelectedText = "";
-            this.metroTextCapacitaciones.SelectionLength = 0;
-            this.metroTextCapacitaciones.SelectionStart = 0;
-            this.metroTextCapacitaciones.ShortcutsEnabled = true;
-            this.metroTextCapacitaciones.Size = new System.Drawing.Size(205, 23);
-            this.metroTextCapacitaciones.TabIndex = 17;
-            this.metroTextCapacitaciones.UseSelectable = true;
-            this.metroTextCapacitaciones.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextCapacitaciones.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroTextExperiencia
-            // 
-            // 
-            // 
-            // 
-            this.metroTextExperiencia.CustomButton.Image = null;
-            this.metroTextExperiencia.CustomButton.Location = new System.Drawing.Point(183, 1);
-            this.metroTextExperiencia.CustomButton.Name = "";
-            this.metroTextExperiencia.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextExperiencia.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextExperiencia.CustomButton.TabIndex = 1;
-            this.metroTextExperiencia.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextExperiencia.CustomButton.UseSelectable = true;
-            this.metroTextExperiencia.CustomButton.Visible = false;
-            this.metroTextExperiencia.Lines = new string[0];
-            this.metroTextExperiencia.Location = new System.Drawing.Point(477, 192);
-            this.metroTextExperiencia.MaxLength = 32767;
-            this.metroTextExperiencia.Name = "metroTextExperiencia";
-            this.metroTextExperiencia.PasswordChar = '\0';
-            this.metroTextExperiencia.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextExperiencia.SelectedText = "";
-            this.metroTextExperiencia.SelectionLength = 0;
-            this.metroTextExperiencia.SelectionStart = 0;
-            this.metroTextExperiencia.ShortcutsEnabled = true;
-            this.metroTextExperiencia.Size = new System.Drawing.Size(205, 23);
-            this.metroTextExperiencia.TabIndex = 18;
-            this.metroTextExperiencia.UseSelectable = true;
-            this.metroTextExperiencia.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextExperiencia.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // metroTextRecomendacion
             // 
             // 
@@ -384,7 +325,7 @@
             this.metroTextBuscar.CustomButton.UseSelectable = true;
             this.metroTextBuscar.CustomButton.Visible = false;
             this.metroTextBuscar.Lines = new string[0];
-            this.metroTextBuscar.Location = new System.Drawing.Point(182, 358);
+            this.metroTextBuscar.Location = new System.Drawing.Point(23, 358);
             this.metroTextBuscar.MaxLength = 32767;
             this.metroTextBuscar.Name = "metroTextBuscar";
             this.metroTextBuscar.PasswordChar = '\0';
@@ -445,7 +386,7 @@
             // 
             // metroButtonBuscar
             // 
-            this.metroButtonBuscar.Location = new System.Drawing.Point(406, 357);
+            this.metroButtonBuscar.Location = new System.Drawing.Point(282, 358);
             this.metroButtonBuscar.Name = "metroButtonBuscar";
             this.metroButtonBuscar.Size = new System.Drawing.Size(75, 23);
             this.metroButtonBuscar.TabIndex = 22;
@@ -500,11 +441,82 @@
             this.metroComboDepartamento.TabIndex = 27;
             this.metroComboDepartamento.UseSelectable = true;
             // 
+            // metroButtonCerrar
+            // 
+            this.metroButtonCerrar.Location = new System.Drawing.Point(593, 358);
+            this.metroButtonCerrar.Name = "metroButtonCerrar";
+            this.metroButtonCerrar.Size = new System.Drawing.Size(75, 23);
+            this.metroButtonCerrar.TabIndex = 28;
+            this.metroButtonCerrar.Text = "Cerrar";
+            this.metroButtonCerrar.UseSelectable = true;
+            this.metroButtonCerrar.Click += new System.EventHandler(this.metroButtonCerrar_Click);
+            // 
+            // metroTextCapacitaciones
+            // 
+            // 
+            // 
+            // 
+            this.metroTextCapacitaciones.CustomButton.Image = null;
+            this.metroTextCapacitaciones.CustomButton.Location = new System.Drawing.Point(183, 1);
+            this.metroTextCapacitaciones.CustomButton.Name = "";
+            this.metroTextCapacitaciones.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextCapacitaciones.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextCapacitaciones.CustomButton.TabIndex = 1;
+            this.metroTextCapacitaciones.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextCapacitaciones.CustomButton.UseSelectable = true;
+            this.metroTextCapacitaciones.CustomButton.Visible = false;
+            this.metroTextCapacitaciones.Lines = new string[0];
+            this.metroTextCapacitaciones.Location = new System.Drawing.Point(477, 152);
+            this.metroTextCapacitaciones.MaxLength = 32767;
+            this.metroTextCapacitaciones.Name = "metroTextCapacitaciones";
+            this.metroTextCapacitaciones.PasswordChar = '\0';
+            this.metroTextCapacitaciones.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextCapacitaciones.SelectedText = "";
+            this.metroTextCapacitaciones.SelectionLength = 0;
+            this.metroTextCapacitaciones.SelectionStart = 0;
+            this.metroTextCapacitaciones.ShortcutsEnabled = true;
+            this.metroTextCapacitaciones.Size = new System.Drawing.Size(205, 23);
+            this.metroTextCapacitaciones.TabIndex = 17;
+            this.metroTextCapacitaciones.UseSelectable = true;
+            this.metroTextCapacitaciones.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextCapacitaciones.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroTextExperiencia
+            // 
+            // 
+            // 
+            // 
+            this.metroTextExperiencia.CustomButton.Image = null;
+            this.metroTextExperiencia.CustomButton.Location = new System.Drawing.Point(183, 1);
+            this.metroTextExperiencia.CustomButton.Name = "";
+            this.metroTextExperiencia.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextExperiencia.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextExperiencia.CustomButton.TabIndex = 1;
+            this.metroTextExperiencia.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextExperiencia.CustomButton.UseSelectable = true;
+            this.metroTextExperiencia.CustomButton.Visible = false;
+            this.metroTextExperiencia.Lines = new string[0];
+            this.metroTextExperiencia.Location = new System.Drawing.Point(477, 192);
+            this.metroTextExperiencia.MaxLength = 32767;
+            this.metroTextExperiencia.Name = "metroTextExperiencia";
+            this.metroTextExperiencia.PasswordChar = '\0';
+            this.metroTextExperiencia.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextExperiencia.SelectedText = "";
+            this.metroTextExperiencia.SelectionLength = 0;
+            this.metroTextExperiencia.SelectionStart = 0;
+            this.metroTextExperiencia.ShortcutsEnabled = true;
+            this.metroTextExperiencia.Size = new System.Drawing.Size(205, 23);
+            this.metroTextExperiencia.TabIndex = 18;
+            this.metroTextExperiencia.UseSelectable = true;
+            this.metroTextExperiencia.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextExperiencia.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // FormCandidatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 584);
+            this.Controls.Add(this.metroButtonCerrar);
             this.Controls.Add(this.metroComboDepartamento);
             this.Controls.Add(this.metroComboPuesto);
             this.Controls.Add(this.metroButtonEliminar);
@@ -557,8 +569,6 @@
         private MetroFramework.Controls.MetroTextBox metroTextCedula;
         private MetroFramework.Controls.MetroTextBox metroTextSalario;
         private MetroFramework.Controls.MetroTextBox metroTextCompetencias;
-        private MetroFramework.Controls.MetroTextBox metroTextCapacitaciones;
-        private MetroFramework.Controls.MetroTextBox metroTextExperiencia;
         private MetroFramework.Controls.MetroTextBox metroTextRecomendacion;
         private MetroFramework.Controls.MetroTextBox metroTextBuscar;
         private MetroFramework.Controls.MetroGrid metroGridCandidatos;
@@ -568,5 +578,8 @@
         private MetroFramework.Controls.MetroButton metroButtonEliminar;
         private MetroFramework.Controls.MetroComboBox metroComboPuesto;
         private MetroFramework.Controls.MetroComboBox metroComboDepartamento;
+        private MetroFramework.Controls.MetroButton metroButtonCerrar;
+        private MetroFramework.Controls.MetroTextBox metroTextCapacitaciones;
+        private MetroFramework.Controls.MetroTextBox metroTextExperiencia;
     }
 }

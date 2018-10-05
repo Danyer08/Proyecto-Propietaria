@@ -53,6 +53,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ExperienciaLaboral">
+      <EntityTypeMapping TypeName="RRHHModel.ExperienciaLaboral">
+        <MappingFragment StoreEntitySet="ExperienciaLaboral">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Idiomas">
       <EntityTypeMapping TypeName="RRHHModel.Idiomas">
         <MappingFragment StoreEntitySet="Idiomas">
@@ -72,16 +83,6 @@
           <ScalarProperty Name="SalarioMaximo" ColumnName="SalarioMaximo" />
           <ScalarProperty Name="Departamento" ColumnName="Departamento" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ExperienciaLaboral">
-      <EntityTypeMapping TypeName="RRHHModel.ExperienciaLaboral">
-        <MappingFragment StoreEntitySet="ExperienciaLaboral">
-          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
-          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
-          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-          <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
