@@ -69,6 +69,9 @@
     <Compile Include="Capacitaciones.cs">
       <DependentUpon>RRHH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Competencias.cs">
+      <DependentUpon>RRHH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Departamento.cs">
       <DependentUpon>RRHH.tt</DependentUpon>
     </Compile>
@@ -89,6 +92,12 @@
     </Compile>
     <Compile Include="FormCapacitaciones.Designer.cs">
       <DependentUpon>FormCapacitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCompetencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompetencias.Designer.cs">
+      <DependentUpon>FormCompetencias.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDepartamento.cs">
       <SubType>Form</SubType>
@@ -155,6 +164,9 @@
     <EmbeddedResource Include="FormCapacitaciones.resx">
       <DependentUpon>FormCapacitaciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCompetencias.resx">
+      <DependentUpon>FormCompetencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDepartamento.resx">
       <DependentUpon>FormDepartamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPuestos.resx">
+      <DependentUpon>FormPuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

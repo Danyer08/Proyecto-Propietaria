@@ -74,5 +74,17 @@ namespace ProyectoPropietaria
             var candidato = new FormCandidatos();
             candidato.ShowDialog();
         }
+
+        private void capacitacionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var capacitacion = new FormCapacitaciones();
+            capacitacion.ShowDialog();
+        }
+
+        private void competenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var competencia = new FormCompetencias();
+            competencia.ShowDialog();
+        }
     }
 }

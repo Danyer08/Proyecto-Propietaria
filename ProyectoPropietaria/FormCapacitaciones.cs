@@ -99,14 +99,13 @@ namespace ProyectoPropietaria
             metroComboNivel.DisplayMember = "Value";
             metroComboNivel.ValueMember = "Key";
 
-            Dictionary<string, string> idiomas = new Dictionary<string, string>();
-            idiomas.Add("1", "Español");
-            idiomas.Add("2", "Ingles");
-            idiomas.Add("3", "Frances");
-            idiomas.Add("4", "Italiano");
-            metroComboIdiomas.DataSource = new BindingSource(idiomas, null);
-            metroComboIdiomas.DisplayMember = "Value";
-            metroComboIdiomas.ValueMember = "Key";
+            using (var context = new RRHHEntities())
+            {
+                var idioma = from idiom in context.Idiomas
+                                   where (idiom.Estado == true)
+                                   select idiom.Nombre;
+                metroComboIdiomas.DataSource = idioma.ToList();
+            }
         }
 
         private void metroGridCapacitaciones_SelectionChanged(object sender, EventArgs e)

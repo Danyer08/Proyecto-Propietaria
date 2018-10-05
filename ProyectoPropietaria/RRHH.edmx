@@ -32,6 +32,14 @@
           <Property Name="Institucion" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Idiomas" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <EntityType Name="Competencias">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Departamento">
           <Key>
             <PropertyRef Name="Id" />
@@ -86,6 +94,7 @@
         <EntityContainer Name="RRHHModelStoreContainer">
           <EntitySet Name="Candidatos" EntityType="Self.Candidatos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Capacitaciones" EntityType="Self.Capacitaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Competencias" EntityType="Self.Competencias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" Schema="dbo" store:Type="Tables" />
@@ -182,7 +191,16 @@
           <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" />
           <EntitySet Name="Idiomas" EntityType="Self.Idiomas" />
           <EntitySet Name="Puestos" EntityType="Self.Puestos" />
+          <EntitySet Name="Competencias" EntityType="RRHHModel.Competencias" />
         </EntityContainer>
+        <EntityType Name="Competencias">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -271,6 +289,15 @@
                 <ScalarProperty Name="SalarioMaximo" ColumnName="SalarioMaximo" />
                 <ScalarProperty Name="Departamento" ColumnName="Departamento" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Competencias">
+            <EntityTypeMapping TypeName="RRHHModel.Competencias">
+              <MappingFragment StoreEntitySet="Competencias">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -27,6 +27,14 @@
     <Property Name="Institucion" Type="varchar" MaxLength="25" Nullable="false" />
     <Property Name="Idiomas" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
+  <EntityType Name="Competencias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Departamento">
     <Key>
       <PropertyRef Name="Id" />
@@ -81,6 +89,7 @@
   <EntityContainer Name="RRHHModelStoreContainer">
     <EntitySet Name="Candidatos" EntityType="Self.Candidatos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Capacitaciones" EntityType="Self.Capacitaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Competencias" EntityType="Self.Competencias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" Schema="dbo" store:Type="Tables" />

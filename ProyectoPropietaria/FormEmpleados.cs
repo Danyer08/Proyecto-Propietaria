@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,19 +72,17 @@ namespace ProyectoPropietaria
         {
             using (var context = new RRHHEntities())
             {
-                var puesto = from pue in context.Puestos
-                             select new
-                             {
-                                 pue.Nombre
-                             };
+                var puesto = from pues in context.Puestos
+                             where (pues.Estado == true)
+                             select pues.Nombre;
                 metroComboPuesto.DataSource = puesto.ToList();
 
-                var departamento = from dep in context.Departamento
-                                   select new
-                                   {
-                                       dep.NombreDepartamento
-                                   };
-                metroComboDepartamento.DataSource = departamento.ToList();
+                var departameto = from dep in context.Departamento
+                                  where (dep.Estado == true)
+                                  select dep.NombreDepartamento;
+                metroComboDepartamento.DataSource = departameto.ToList();
+
+
             }
         }
 
@@ -165,6 +164,23 @@ namespace ProyectoPropietaria
         private void metroButtonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void metroButtonReporte_Click(object sender, EventArgs e)
+        {
+            using (var context = new RRHHEntities())
+            {
+                string filename = "Registro Empleados.csv";
+                string filepath = @"C:\Users\Danyer\Desktop" + filename;
+                StreamWriter sw = new StreamWriter(filepath);
+                sw.WriteLine("Nombre,Cedula,Departamento,Fecha de Ingreso"); //Encabezado 
+                foreach (var emp in context.Empleados.ToList())
+                {
+                    sw.WriteLine(emp.Nombre.ToString() + "," + emp.Cedula.ToString() + "," + emp.Departamento.ToString() + "," + emp.FechaIngreso);
+                }
+                sw.Close();
+            }
+          
         }
     }
 

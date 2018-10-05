@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -98,19 +99,17 @@ namespace ProyectoPropietaria
         {
             using (var context = new RRHHEntities())
             {
-                var puesto = from pue in context.Puestos
-                                 select new
-                                 {
-                                     pue.Nombre
-                                 };
+                var puesto = from pues in context.Puestos
+                             where (pues.Estado == true)
+                             select pues.Nombre;
                 metroComboPuesto.DataSource = puesto.ToList();
 
-                var departamento = from dep in context.Departamento
-                             select new
-                             {
-                                 dep.NombreDepartamento
-                             };
-                metroComboDepartamento.DataSource = departamento.ToList();
+                var departameto = from dep in context.Departamento
+                                  where (dep.Estado == true)
+                                  select dep.NombreDepartamento;
+                metroComboDepartamento.DataSource = departameto.ToList();
+
+
             }
         }
         public void ConsultaFlexible()
@@ -142,6 +141,50 @@ namespace ProyectoPropietaria
         {
             var experiencia = new FormExperienciaLaboral();
             experiencia.ShowDialog();
+        }
+
+        private void metroButtonEditar_Click(object sender, EventArgs e)
+        {
+            int canId = Convert.ToInt32(metroLabelId.Text);
+
+            using (var context = new RRHHEntities())
+            {
+                var canToUpdate = context.Candidatos.SingleOrDefault(can => can.Id == canId);
+                if (canToUpdate != null)
+                {
+                    canToUpdate.Nombre = metroTextNombre.Text;
+                    canToUpdate.Cedula = metroTextCedula.Text;
+                    canToUpdate.PuestoAspirante = metroComboPuesto.Text;
+                    canToUpdate.Deparamento = metroComboDepartamento.Text;
+                    canToUpdate.SalarioDeseado = Convert.ToInt32(metroTextSalario.Text);
+                    canToUpdate.Competencias = metroTextCompetencias.Text;
+                    canToUpdate.Capacitaciones = metroTextCapacitaciones.Text;
+                    canToUpdate.Experiencia = metroTextExperiencia.Text;
+                    canToUpdate.Recomendacion = metroTextRecomendacion.Text;
+                }
+                context.Entry(canToUpdate).State = EntityState.Modified;
+                context.SaveChanges();
+                MessageBox.Show("Datos Modificados");
+            }
+        }
+
+        private void metroButtonBuscar_Click(object sender, EventArgs e)
+        {
+            ConsultaFlexible();
+        }
+
+        private void metroButtonEliminar_Click(object sender, EventArgs e)
+        {
+            int canId = Convert.ToInt32(metroLabelId.Text);
+
+            using (RRHHEntities context = new RRHHEntities())
+            {
+                var candidato = context.Candidatos.Find(canId);
+                context.Candidatos.Remove(candidato);
+                context.SaveChanges();
+                MessageBox.Show("Datos Eliminados");
+                Refrescar();
+            }
         }
     }
    
