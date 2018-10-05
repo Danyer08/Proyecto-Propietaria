@@ -29,8 +29,8 @@ namespace ProyectoPropietaria
         public virtual DbSet<Capacitaciones> Capacitaciones { get; set; }
         public virtual DbSet<Departamento> Departamento { get; set; }
         public virtual DbSet<Empleados> Empleados { get; set; }
+        public virtual DbSet<ExperienciaLaboral> ExperienciaLaboral { get; set; }
         public virtual DbSet<Idiomas> Idiomas { get; set; }
         public virtual DbSet<Puestos> Puestos { get; set; }
-        public virtual DbSet<ExperienciaLaboral> ExperienciaLaboral { get; set; }
     }
 }

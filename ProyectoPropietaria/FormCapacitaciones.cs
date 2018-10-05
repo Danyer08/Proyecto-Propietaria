@@ -107,9 +107,6 @@ namespace ProyectoPropietaria
             metroComboIdiomas.DataSource = new BindingSource(idiomas, null);
             metroComboIdiomas.DisplayMember = "Value";
             metroComboIdiomas.ValueMember = "Key";
-
-
-
         }
 
         private void metroGridCapacitaciones_SelectionChanged(object sender, EventArgs e)
@@ -130,8 +127,6 @@ namespace ProyectoPropietaria
             metroDateFin.Value = (DateTime)selectedRow.Cells["FechaFinalizacion"].Value;
             metroTextInstitucion.Text = selectedRow.Cells["Institucion"].Value.ToString();
             metroComboIdiomas.SelectedIndex = metroComboIdiomas.FindStringExact(selectedRow.Cells["Idiomas"].Value.ToString());
-
-
         }
 
         private void metroButtonEditar_Click(object sender, EventArgs e)
@@ -169,6 +164,11 @@ namespace ProyectoPropietaria
                 MessageBox.Show("Datos Eliminados");
                 Refrescar();
             }
+        }
+
+        private void metroButtonCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

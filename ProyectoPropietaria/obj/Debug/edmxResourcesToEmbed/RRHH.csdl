@@ -48,6 +48,16 @@
     <Property Name="Salario" Type="Double" Nullable="false" />
     <Property Name="Estado" Type="Boolean" Nullable="false" />
   </EntityType>
+  <EntityType Name="ExperienciaLaboral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaFinalizacion" Type="DateTime" Precision="0" />
+  </EntityType>
   <EntityType Name="Idiomas">
     <Key>
       <PropertyRef Name="Id" />
@@ -68,25 +78,13 @@
     <Property Name="Departamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Estado" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityType Name="ExperienciaLaboral">
-    <Key>
-      <PropertyRef Name="Empresa" />
-      <PropertyRef Name="Puesto" />
-      <PropertyRef Name="FechaInicio" />
-      <PropertyRef Name="FechaFinalizacion" />
-    </Key>
-    <Property Name="Empresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Puesto" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="FechaFinalizacion" Type="DateTime" Nullable="false" Precision="0" />
-  </EntityType>
   <EntityContainer Name="RRHHEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Candidatos" EntityType="Self.Candidatos" />
     <EntitySet Name="Capacitaciones" EntityType="Self.Capacitaciones" />
     <EntitySet Name="Departamento" EntityType="Self.Departamento" />
     <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" />
     <EntitySet Name="Idiomas" EntityType="Self.Idiomas" />
     <EntitySet Name="Puestos" EntityType="Self.Puestos" />
-    <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" />
   </EntityContainer>
 </Schema>
