@@ -38,14 +38,21 @@ namespace ProyectoPropietaria
                 Estado = (bool)metroCheckEstado.Checked
 
             };
-
-            using (var context = new RRHHEntities())
+            if (metroTextCedula.Text != string.Empty)
             {
-                context.Empleados.Add(empleado);
-                context.SaveChanges();
-                MessageBox.Show("Datos Guardados");
+                using (var context = new RRHHEntities())
+                {
+                    context.Empleados.Add(empleado);
+                    context.SaveChanges();
+                    MessageBox.Show("Datos Guardados");
+                }
+                Refrescar();
             }
-            Refrescar();
+            else
+            {
+                MessageBox.Show("Cedula no Valida", "Error",
+   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public void Refrescar()
         {
@@ -89,25 +96,33 @@ namespace ProyectoPropietaria
         private void metroButtonEditar_Click(object sender, EventArgs e)
         {
             int empId = Convert.ToInt32(metroLabeId.Text);
-
-            using (var context = new RRHHEntities())
+            if (metroTextCedula.Text != string.Empty)
             {
-                var empToUpdate = context.Empleados.SingleOrDefault(emp => emp.Id == empId);
-                if (empToUpdate != null)
+                using (var context = new RRHHEntities())
                 {
-                    empToUpdate.Nombre = metroTextNombre.Text;
-                    empToUpdate.Cedula = metroTextCedula.Text;
-                    empToUpdate.FechaIngreso = (DateTime)metroDateIngreso.Value;
-                    empToUpdate.Departamento = metroComboDepartamento.Text;
-                    empToUpdate.Puesto = metroComboPuesto.Text;
-                    empToUpdate.Salario = Convert.ToInt32(metroTextSalario.Text);
-                    empToUpdate.Estado = (bool)metroCheckEstado.Checked;
+                    var empToUpdate = context.Empleados.SingleOrDefault(emp => emp.Id == empId);
+                    if (empToUpdate != null)
+                    {
+                        empToUpdate.Nombre = metroTextNombre.Text;
+                        empToUpdate.Cedula = metroTextCedula.Text;
+                        empToUpdate.FechaIngreso = (DateTime)metroDateIngreso.Value;
+                        empToUpdate.Departamento = metroComboDepartamento.Text;
+                        empToUpdate.Puesto = metroComboPuesto.Text;
+                        empToUpdate.Salario = Convert.ToInt32(metroTextSalario.Text);
+                        empToUpdate.Estado = (bool)metroCheckEstado.Checked;
+                    }
+                    context.Entry(empToUpdate).State = EntityState.Modified;
+                    context.SaveChanges();
+                    MessageBox.Show("Datos Modificados");
+                    Refrescar();
                 }
-                context.Entry(empToUpdate).State = EntityState.Modified;
-                context.SaveChanges();
-                MessageBox.Show("Datos Modificados");
-                Refrescar();
             }
+            else
+            {
+                MessageBox.Show("Cedula no Valida", "Error",
+   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
 
@@ -177,9 +192,48 @@ namespace ProyectoPropietaria
 
         private void metroTextSalario_Validating(object sender, CancelEventArgs e)
         {
-            if (float.Parse(metroTextSalario.Text) < 0)
+            if (string.IsNullOrWhiteSpace(metroTextSalario.Text))
             {
-                MessageBox.Show("Salario es un campo requerido y no puede ser menor que 0", "Error",
+                MessageBox.Show("Salario es un campo requerido.", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (float.Parse(metroTextSalario.Text) < 0)
+            {
+                MessageBox.Show("Salario no puede ser menor que 0", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                metroTextSalario.Clear();
+            }
+        }
+
+        private void metroTextCedula_Validating(object sender, CancelEventArgs e)
+        {
+            validaCedula(metroTextCedula.Text);
+        }
+        public static void validaCedula(string pCedula)
+        {
+            int vnTotal = 0;
+            string vcCedula = pCedula.Replace("-", "");
+            int pLongCed = vcCedula.Trim().Length;
+            int[] digitoMult = new int[11] { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+
+            if (pLongCed < 11 || pLongCed > 11)
+            {
+                MessageBox.Show("Ingrese solo Numeros (Ej: 40214736478)", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            for (int vDig = 1; vDig <= pLongCed; vDig++)
+            {
+                int vCalculo = Int32.Parse(vcCedula.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
+                if (vCalculo < 10)
+                    vnTotal += vCalculo;
+                else
+                    vnTotal += Int32.Parse(vCalculo.ToString().Substring(0, 1)) + Int32.Parse(vCalculo.ToString().Substring(1, 1));
+            }
+
+            if (vnTotal % 10 != 0)
+            {
+                MessageBox.Show("Cedula no Valida", "Error",
     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

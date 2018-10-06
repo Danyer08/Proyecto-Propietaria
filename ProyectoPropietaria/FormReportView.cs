@@ -47,5 +47,10 @@ namespace ProyectoPropietaria
         {
             this.Close();
         }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

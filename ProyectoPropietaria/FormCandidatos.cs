@@ -62,13 +62,20 @@ namespace ProyectoPropietaria
 
             };
 
-
-            using (var context = new RRHHEntities())
+            if (metroTextCedula.Text != string.Empty)
             {
-                context.Candidatos.Add(candidato);
-                context.SaveChanges();
-                MessageBox.Show("Datos Guardados");
+                using (var context = new RRHHEntities())
+                {
+                    context.Candidatos.Add(candidato);
+                    context.SaveChanges();
+                    MessageBox.Show("Datos Guardados");
+                }
             }
+            else {
+                MessageBox.Show("Cedula no Valida", "Error",
+   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             Refrescar();
         }
 
@@ -153,27 +160,35 @@ namespace ProyectoPropietaria
         private void metroButtonEditar_Click(object sender, EventArgs e)
         {
             int canId = Convert.ToInt32(metroLabelId.Text);
-
-            using (var context = new RRHHEntities())
+            if (metroTextCedula.Text != string.Empty)
             {
-                var canToUpdate = context.Candidatos.SingleOrDefault(can => can.Id == canId);
-                if (canToUpdate != null)
+                using (var context = new RRHHEntities())
                 {
-                    canToUpdate.Nombre = metroTextNombre.Text;
-                    canToUpdate.Cedula = metroTextCedula.Text;
-                    canToUpdate.PuestoAspirante = metroComboPuesto.Text;
-                    canToUpdate.Deparamento = metroComboDepartamento.Text;
-                    canToUpdate.SalarioDeseado = float.Parse(metroTextSalario.Text);
-                    canToUpdate.Competencias = metroComboCompetencias.Text;
-                    canToUpdate.Capacitaciones = metroComboCapacitaciones.Text;
-                    canToUpdate.Experiencia = metroTextExperiencia.Text;
-                    canToUpdate.Recomendacion = metroTextRecomendacion.Text;
+                    var canToUpdate = context.Candidatos.SingleOrDefault(can => can.Id == canId);
+                    if (canToUpdate != null)
+                    {
+                        canToUpdate.Nombre = metroTextNombre.Text;
+                        canToUpdate.Cedula = metroTextCedula.Text;
+                        canToUpdate.PuestoAspirante = metroComboPuesto.Text;
+                        canToUpdate.Deparamento = metroComboDepartamento.Text;
+                        canToUpdate.SalarioDeseado = float.Parse(metroTextSalario.Text);
+                        canToUpdate.Competencias = metroComboCompetencias.Text;
+                        canToUpdate.Capacitaciones = metroComboCapacitaciones.Text;
+                        canToUpdate.Experiencia = metroTextExperiencia.Text;
+                        canToUpdate.Recomendacion = metroTextRecomendacion.Text;
+                    }
+                    context.Entry(canToUpdate).State = EntityState.Modified;
+                    context.SaveChanges();
+                    MessageBox.Show("Datos Modificados");
+                    Refrescar();
                 }
-                context.Entry(canToUpdate).State = EntityState.Modified;
-                context.SaveChanges();
-                MessageBox.Show("Datos Modificados");
-                Refrescar();
             }
+            else
+            {
+                MessageBox.Show("Cedula no Valida", "Error",
+   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void metroButtonBuscar_Click(object sender, EventArgs e)
@@ -197,18 +212,49 @@ namespace ProyectoPropietaria
 
         private void metroTextSalario_Validating(object sender, CancelEventArgs e)
         {
-            if (float.Parse(metroTextSalario.Text) < 0)
+            if (string.IsNullOrWhiteSpace(metroTextSalario.Text))
             {
-                MessageBox.Show("Salario es un campo requerido y no puede ser menor que 0", "Error",
+                MessageBox.Show("Salario es un campo requerido.", "Error",
     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (float.Parse(metroTextSalario.Text) < 0)
+            {
+                MessageBox.Show("Salario no puede ser menor que 0", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                metroTextSalario.Clear();
             }
         }
         private void metroTextCedula_Validating(object sender, CancelEventArgs e)
         {
-            if (int.Parse(metroTextCedula.Text) < 11 || int.Parse(metroTextCedula.Text) > 11)
+            validaCedula(metroTextCedula.Text);
+        }
+        public static void validaCedula(string pCedula)
+        {
+            int vnTotal = 0;
+            string vcCedula = pCedula.Replace("-", "");
+            int pLongCed = vcCedula.Trim().Length;
+            int[] digitoMult = new int[11] { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+
+            if (pLongCed < 11 || pLongCed > 11)
+            {
+                MessageBox.Show("Ingrese solo Numeros (Ej: 40214736478)", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            for (int vDig = 1; vDig <= pLongCed; vDig++)
+            {
+                int vCalculo = Int32.Parse(vcCedula.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
+                if (vCalculo < 10)
+                    vnTotal += vCalculo;
+                else
+                    vnTotal += Int32.Parse(vCalculo.ToString().Substring(0, 1)) + Int32.Parse(vCalculo.ToString().Substring(1, 1));
+            }
+
+            if (vnTotal % 10 != 0)
+            {
                 MessageBox.Show("Cedula no Valida", "Error",
-            MessageBoxButtons.OK, MessageBoxIcon.Error);
-            metroTextCedula.Clear();
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonConvertir_Click(object sender, EventArgs e)
@@ -217,9 +263,11 @@ namespace ProyectoPropietaria
             {
                 Nombre = metroTextNombre.Text,
                 Cedula = metroTextCedula.Text,
+                FechaIngreso = DateTime.Now,
                 Departamento = metroComboDepartamento.Text,
                 Puesto = metroComboPuesto.Text,
                 Salario = float.Parse(metroTextSalario.Text),
+                Estado = true
 
             };
 
@@ -230,9 +278,6 @@ namespace ProyectoPropietaria
                 MessageBox.Show("Datos Guardados");
             }
             Refrescar();
-
-            var formempleado = new FormEmpleados();
-            formempleado.ShowDialog();
         }
     }
    

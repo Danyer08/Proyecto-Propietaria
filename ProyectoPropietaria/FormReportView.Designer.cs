@@ -30,38 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.RRHHDataSet = new ProyectoPropietaria.RRHHDataSet();
             this.EmpleadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RRHHDataSet = new ProyectoPropietaria.RRHHDataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.EmpleadosTableAdapter = new ProyectoPropietaria.RRHHDataSetTableAdapters.EmpleadosTableAdapter();
             this.buttonSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.RRHHDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpleadosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RRHHDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.AutoSize = true;
-            this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.EmpleadosBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "ProyectoPropietaria.Reports.ReportEmpleados.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(10, 76);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(767, 351);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // RRHHDataSet
-            // 
-            this.RRHHDataSet.DataSetName = "RRHHDataSet";
-            this.RRHHDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EmpleadosBindingSource
             // 
             this.EmpleadosBindingSource.DataMember = "Empleados";
             this.EmpleadosBindingSource.DataSource = this.RRHHDataSet;
             this.EmpleadosBindingSource.CurrentChanged += new System.EventHandler(this.EmpleadosBindingSource_CurrentChanged);
+            // 
+            // RRHHDataSet
+            // 
+            this.RRHHDataSet.DataSetName = "RRHHDataSet";
+            this.RRHHDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.AutoSize = true;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.EmpleadosBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "ProyectoPropietaria.Reports.ReportEmpleados.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(10, 76);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(767, 286);
+            this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // EmpleadosTableAdapter
             // 
@@ -87,8 +87,8 @@
             this.Name = "FormReportView";
             this.Text = "Reporte";
             this.Load += new System.EventHandler(this.FormReportView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.RRHHDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpleadosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RRHHDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

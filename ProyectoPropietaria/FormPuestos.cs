@@ -167,20 +167,34 @@ namespace ProyectoPropietaria
 
         private void metroTextMinimo_Validating(object sender, CancelEventArgs e)
         {
-            if(float.Parse(metroTextMinimo.Text) < 0 || metroTextMinimo.Text == string.Empty)
+            if (string.IsNullOrWhiteSpace(metroTextMinimo.Text))
             {
-                MessageBox.Show("Salario es un campo requerido y no puede ser menor que 0", "Error",
+                MessageBox.Show("Salario es un campo requerido.", "Error",
     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (float.Parse(metroTextMinimo.Text) < 0)
+            {
+                MessageBox.Show("Salario no puede ser menor que 0", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                metroTextMinimo.Clear();
+            }
+           
         }
 
         private void metroTextMaximo_Validating(object sender, CancelEventArgs e)
         {
-            if (float.Parse(metroTextMaximo.Text) < 0)
+            if (string.IsNullOrWhiteSpace(metroTextMaximo.Text))
             {
-                MessageBox.Show("Salario es un campo requerido y no puede ser menor que 0", "Error",
+                MessageBox.Show("Salario es un campo requerido.", "Error",
     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (float.Parse(metroTextMaximo.Text) < 0)
+            {
+                MessageBox.Show("Salario no puede ser menor que 0", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                metroTextMaximo.Clear();
+            }
+            
         }
     }
 }
