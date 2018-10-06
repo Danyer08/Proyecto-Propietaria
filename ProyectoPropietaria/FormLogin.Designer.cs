@@ -130,7 +130,7 @@
             this.Controls.Add(this.metroTextPass);
             this.Controls.Add(this.metroTextUsuario);
             this.Name = "FormLogin";
-            this.Text = "Iniciar Sesion";
+            this.Text = "Inicio de Sesion";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
