@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="RRHHModelStoreContainer" CdmEntityContainer="RRHHEntities">
     <EntitySetMapping Name="Candidatos">
-      <EntityTypeMapping TypeName="RRHHModel.Candidatos">
+      <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.Candidatos)">
         <MappingFragment StoreEntitySet="Candidatos">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -18,7 +18,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Capacitaciones">
-      <EntityTypeMapping TypeName="RRHHModel.Capacitaciones">
+      <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.Capacitaciones)">
         <MappingFragment StoreEntitySet="Capacitaciones">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -31,7 +31,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Departamento">
-      <EntityTypeMapping TypeName="RRHHModel.Departamento">
+      <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.Departamento)">
         <MappingFragment StoreEntitySet="Departamento">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
@@ -40,7 +40,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Empleados">
-      <EntityTypeMapping TypeName="RRHHModel.Empleados">
+      <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.Empleados)">
         <MappingFragment StoreEntitySet="Empleados">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ExperienciaLaboral">
-      <EntityTypeMapping TypeName="RRHHModel.ExperienciaLaboral">
+      <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.ExperienciaLaboral)">
         <MappingFragment StoreEntitySet="ExperienciaLaboral">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Empresa" ColumnName="Empresa" />
@@ -65,7 +65,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Idiomas">
-      <EntityTypeMapping TypeName="RRHHModel.Idiomas">
+      <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.Idiomas)">
         <MappingFragment StoreEntitySet="Idiomas">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -74,7 +74,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Puestos">
-      <EntityTypeMapping TypeName="RRHHModel.Puestos">
+      <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.Puestos)">
         <MappingFragment StoreEntitySet="Puestos">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -87,11 +87,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Competencias">
-      <EntityTypeMapping TypeName="RRHHModel.Competencias">
+      <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.Competencias)">
         <MappingFragment StoreEntitySet="Competencias">
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

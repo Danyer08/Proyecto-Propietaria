@@ -170,18 +170,8 @@ namespace ProyectoPropietaria
 
         private void metroButtonReporte_Click(object sender, EventArgs e)
         {
-            using (var context = new RRHHEntities())
-            {
-                string filename = "Registro Empleados.csv";
-                string filepath = @"C:\Users\Danyer\Desktop" + filename;
-                StreamWriter sw = new StreamWriter(filepath);
-                sw.WriteLine("Nombre,Cedula,Departamento,Fecha de Ingreso"); //Encabezado 
-                foreach (var emp in context.Empleados.ToList())
-                {
-                    sw.WriteLine(emp.Nombre.ToString() + "," + emp.Cedula.ToString() + "," + emp.Departamento.ToString() + "," + emp.FechaIngreso);
-                }
-                sw.Close();
-            }
+            var report = new FormReportView();
+            report.ShowDialog();
           
         }
 

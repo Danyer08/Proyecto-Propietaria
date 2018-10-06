@@ -18,9 +18,9 @@ namespace ProyectoPropietaria
             InitializeComponent();
         }
 
-        Login admin = new Login("Admin", "ad1a2b3z");
-        Login candidato = new Login("Candidato", "ca1a2b3z");
-        Login empleado = new Login("Empleado", "emp1a2b3z");
+        Login admin = new Login("Admin", "1233456");
+        Login candidato = new Login("Candidato", "123456");
+        Login empleado = new Login("Empleado", "123456");
 
         private void FormLogin_Load(object sender, EventArgs e)
         {

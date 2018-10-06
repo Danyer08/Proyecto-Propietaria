@@ -398,12 +398,13 @@
             this.metroButtonReporte.Name = "metroButtonReporte";
             this.metroButtonReporte.Size = new System.Drawing.Size(120, 23);
             this.metroButtonReporte.TabIndex = 23;
-            this.metroButtonReporte.Text = "Generar Reporte ";
+            this.metroButtonReporte.Text = "Reporte ";
             this.metroButtonReporte.UseSelectable = true;
             this.metroButtonReporte.Click += new System.EventHandler(this.metroButtonReporte_Click);
             // 
             // FormEmpleados
             // 
+            this.AcceptButton = this.metroButtonBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 577);

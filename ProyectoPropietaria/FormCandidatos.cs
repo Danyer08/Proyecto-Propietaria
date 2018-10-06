@@ -208,8 +208,32 @@ namespace ProyectoPropietaria
             if (int.Parse(metroTextCedula.Text) < 11 || int.Parse(metroTextCedula.Text) > 11)
                 MessageBox.Show("Cedula no Valida", "Error",
             MessageBoxButtons.OK, MessageBoxIcon.Error);
+            metroTextCedula.Clear();
         }
 
+        private void buttonConvertir_Click(object sender, EventArgs e)
+        {
+            Empleados empleado = new Empleados
+            {
+                Nombre = metroTextNombre.Text,
+                Cedula = metroTextCedula.Text,
+                Departamento = metroComboDepartamento.Text,
+                Puesto = metroComboPuesto.Text,
+                Salario = float.Parse(metroTextSalario.Text),
+
+            };
+
+            using (var context = new RRHHEntities())
+            {
+                context.Empleados.Add(empleado);
+                context.SaveChanges();
+                MessageBox.Show("Datos Guardados");
+            }
+            Refrescar();
+
+            var formempleado = new FormEmpleados();
+            formempleado.ShowDialog();
+        }
     }
    
 }

@@ -47,11 +47,14 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -153,6 +156,12 @@
     <Compile Include="FormPuestos.Designer.cs">
       <DependentUpon>FormPuestos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportView.Designer.cs">
+      <DependentUpon>FormReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Idiomas.cs">
       <DependentUpon>RRHH.tt</DependentUpon>
     </Compile>
@@ -176,6 +185,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RRHH.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RRHHDataEmpleados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RRHHDataEmpleados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RRHHDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RRHHDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormCandidatos.resx">
       <DependentUpon>FormCandidatos.cs</DependentUpon>
@@ -213,6 +232,9 @@
     <EmbeddedResource Include="FormPuestos.resx">
       <DependentUpon>FormPuestos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportView.resx">
+      <DependentUpon>FormReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -223,6 +245,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\ReportEmpleados.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -239,6 +262,28 @@
     </EntityDeploy>
     <None Include="RRHH.edmx.diagram">
       <DependentUpon>RRHH.edmx</DependentUpon>
+    </None>
+    <None Include="RRHHDataEmpleados.xsc">
+      <DependentUpon>RRHHDataEmpleados.xsd</DependentUpon>
+    </None>
+    <None Include="RRHHDataEmpleados.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RRHHDataEmpleados.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RRHHDataEmpleados.xss">
+      <DependentUpon>RRHHDataEmpleados.xsd</DependentUpon>
+    </None>
+    <None Include="RRHHDataSet.xsc">
+      <DependentUpon>RRHHDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RRHHDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RRHHDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RRHHDataSet.xss">
+      <DependentUpon>RRHHDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -262,11 +307,13 @@
       <DependentUpon>RRHH.edmx</DependentUpon>
       <LastGenOutput>RRHH.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="RRHH.edmx.sql" />
     <Content Include="RRHH.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RRHH.edmx</DependentUpon>
       <LastGenOutput>RRHH.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
