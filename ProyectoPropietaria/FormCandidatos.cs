@@ -54,9 +54,9 @@ namespace ProyectoPropietaria
                 Cedula = metroTextCedula.Text,
                 PuestoAspirante = metroComboPuesto.Text,
                 Deparamento = metroComboDepartamento.Text,
-                SalarioDeseado = Convert.ToInt32(metroTextSalario.Text),
-                Competencias = metroTextCompetencias.Text,
-                Capacitaciones = metroTextCapacitaciones.Text,
+                SalarioDeseado = float.Parse(metroTextSalario.Text),
+                Competencias = metroComboCompetencias.Text,
+                Capacitaciones = metroComboCapacitaciones.Text,
                 Experiencia = metroTextExperiencia.Text,
                 Recomendacion = metroTextRecomendacion.Text
 
@@ -87,10 +87,10 @@ namespace ProyectoPropietaria
             metroTextNombre.Text = selectedRow.Cells["Nombre"].Value.ToString();
             metroTextCedula.Text = selectedRow.Cells["Cedula"].Value.ToString();
             metroComboPuesto.SelectedIndex = metroComboPuesto.FindStringExact(selectedRow.Cells["PuestoAspirante"].Value.ToString());
-            metroComboDepartamento.SelectedIndex = metroComboDepartamento.FindStringExact(selectedRow.Cells["Departamento"].Value.ToString());
+            metroComboDepartamento.SelectedIndex = metroComboDepartamento.FindStringExact(selectedRow.Cells["Deparamento"].Value.ToString());
             metroTextSalario.Text = selectedRow.Cells["SalarioDeseado"].Value.ToString();
-            metroTextCompetencias.Text = selectedRow.Cells["Competencias"].Value.ToString();
-            metroTextCapacitaciones.Text = selectedRow.Cells["Capacitaciones"].Value.ToString();
+            metroComboCompetencias.SelectedIndex = metroComboCompetencias.FindStringExact(selectedRow.Cells["Competencias"].Value.ToString());
+            metroComboCapacitaciones.SelectedIndex = metroComboCapacitaciones.FindStringExact(selectedRow.Cells["Capacitaciones"].Value.ToString());
             metroTextExperiencia.Text = selectedRow.Cells["Experiencia"].Value.ToString();
             metroTextRecomendacion.Text = selectedRow.Cells["Recomendacion"].Value.ToString();
 
@@ -109,7 +109,14 @@ namespace ProyectoPropietaria
                                   select dep.NombreDepartamento;
                 metroComboDepartamento.DataSource = departameto.ToList();
 
+                var competencias = from com in context.Competencias
+                                 where (com.Estado == true)
+                                 select com.Descripcion;
+                metroComboCompetencias.DataSource = competencias.ToList();
 
+                var capacitaciones = from cap in context.Capacitaciones
+                                     select cap.Descripcion;
+                metroComboCapacitaciones.DataSource = capacitaciones.ToList();
             }
         }
         public void ConsultaFlexible()
@@ -156,15 +163,16 @@ namespace ProyectoPropietaria
                     canToUpdate.Cedula = metroTextCedula.Text;
                     canToUpdate.PuestoAspirante = metroComboPuesto.Text;
                     canToUpdate.Deparamento = metroComboDepartamento.Text;
-                    canToUpdate.SalarioDeseado = Convert.ToInt32(metroTextSalario.Text);
-                    canToUpdate.Competencias = metroTextCompetencias.Text;
-                    canToUpdate.Capacitaciones = metroTextCapacitaciones.Text;
+                    canToUpdate.SalarioDeseado = float.Parse(metroTextSalario.Text);
+                    canToUpdate.Competencias = metroComboCompetencias.Text;
+                    canToUpdate.Capacitaciones = metroComboCapacitaciones.Text;
                     canToUpdate.Experiencia = metroTextExperiencia.Text;
                     canToUpdate.Recomendacion = metroTextRecomendacion.Text;
                 }
                 context.Entry(canToUpdate).State = EntityState.Modified;
                 context.SaveChanges();
                 MessageBox.Show("Datos Modificados");
+                Refrescar();
             }
         }
 
@@ -186,6 +194,22 @@ namespace ProyectoPropietaria
                 Refrescar();
             }
         }
+
+        private void metroTextSalario_Validating(object sender, CancelEventArgs e)
+        {
+            if (float.Parse(metroTextSalario.Text) < 0)
+            {
+                MessageBox.Show("Salario es un campo requerido y no puede ser menor que 0", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void metroTextCedula_Validating(object sender, CancelEventArgs e)
+        {
+            if (int.Parse(metroTextCedula.Text) < 11 || int.Parse(metroTextCedula.Text) > 11)
+                MessageBox.Show("Cedula no Valida", "Error",
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
     }
    
 }

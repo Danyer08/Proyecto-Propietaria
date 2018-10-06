@@ -340,7 +340,7 @@
             // 
             // metroButtonCerrar
             // 
-            this.metroButtonCerrar.Location = new System.Drawing.Point(848, 344);
+            this.metroButtonCerrar.Location = new System.Drawing.Point(838, 344);
             this.metroButtonCerrar.Name = "metroButtonCerrar";
             this.metroButtonCerrar.Size = new System.Drawing.Size(75, 23);
             this.metroButtonCerrar.TabIndex = 20;

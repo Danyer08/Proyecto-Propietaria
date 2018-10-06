@@ -34,7 +34,7 @@ namespace ProyectoPropietaria
                 FechaIngreso = (DateTime)metroDateIngreso.Value,
                 Departamento = metroComboDepartamento.Text,
                 Puesto = metroComboPuesto.Text,
-                Salario = Convert.ToInt32(metroTextSalario.Text),
+                Salario = float.Parse(metroTextSalario.Text),
                 Estado = (bool)metroCheckEstado.Checked
 
             };
@@ -106,7 +106,9 @@ namespace ProyectoPropietaria
                 context.Entry(empToUpdate).State = EntityState.Modified;
                 context.SaveChanges();
                 MessageBox.Show("Datos Modificados");
+                Refrescar();
             }
+
         }
 
         private void metroGridEmpleados_SelectionChanged(object sender, EventArgs e)
@@ -181,6 +183,15 @@ namespace ProyectoPropietaria
                 sw.Close();
             }
           
+        }
+
+        private void metroTextSalario_Validating(object sender, CancelEventArgs e)
+        {
+            if (float.Parse(metroTextSalario.Text) < 0)
+            {
+                MessageBox.Show("Salario es un campo requerido y no puede ser menor que 0", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 

@@ -30,8 +30,8 @@ namespace ProyectoPropietaria
             {
                 Nombre = metroTextNombre.Text,
                 NivelRiesgo = metroComboRiego.Text,
-                SalarioMinimo = Convert.ToInt32(metroTextMinimo.Text),
-                SalarioMaximo = Convert.ToInt32(metroTextMaximo.Text),
+                SalarioMinimo = float.Parse(metroTextMinimo.Text),
+                SalarioMaximo = float.Parse(metroTextMaximo.Text),
                 Departamento = metroComboDepartamento.Text,
                 Estado = (bool)metroCheckEstado.Checked
 
@@ -112,7 +112,6 @@ namespace ProyectoPropietaria
             niveles.Add("1", "Alto");
             niveles.Add("2", "Medio");
             niveles.Add("3", "Bajo");
-            niveles.Add("4", "Ninguno");
             metroComboRiego.DataSource = new BindingSource(niveles, null);
             metroComboRiego.DisplayMember = "Value";
             metroComboRiego.ValueMember = "Key";
@@ -140,8 +139,8 @@ namespace ProyectoPropietaria
                 {
                     pueToUpdate.Nombre = metroTextNombre.Text;
                     pueToUpdate.NivelRiesgo = metroComboRiego.Text;
-                    pueToUpdate.SalarioMinimo = (int)Convert.ToInt32(metroTextMinimo.Text);
-                    pueToUpdate.SalarioMaximo = (int)Convert.ToInt32(metroTextMaximo.Text);
+                    pueToUpdate.SalarioMinimo = float.Parse(metroTextMinimo.Text);
+                    pueToUpdate.SalarioMaximo = float.Parse(metroTextMaximo.Text);
                     pueToUpdate.Departamento = metroComboDepartamento.Text;
                     pueToUpdate.Estado = (bool)metroCheckEstado.Checked;
                 }
@@ -163,6 +162,24 @@ namespace ProyectoPropietaria
                 context.SaveChanges();
                 MessageBox.Show("Datos Eliminados");
                 Refrescar();
+            }
+        }
+
+        private void metroTextMinimo_Validating(object sender, CancelEventArgs e)
+        {
+            if(float.Parse(metroTextMinimo.Text) < 0 || metroTextMinimo.Text == string.Empty)
+            {
+                MessageBox.Show("Salario es un campo requerido y no puede ser menor que 0", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void metroTextMaximo_Validating(object sender, CancelEventArgs e)
+        {
+            if (float.Parse(metroTextMaximo.Text) < 0)
+            {
+                MessageBox.Show("Salario es un campo requerido y no puede ser menor que 0", "Error",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
