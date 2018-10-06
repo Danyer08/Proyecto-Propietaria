@@ -86,5 +86,10 @@ namespace ProyectoPropietaria
             var competencia = new FormCompetencias();
             competencia.ShowDialog();
         }
+
+        private void metroButtonSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

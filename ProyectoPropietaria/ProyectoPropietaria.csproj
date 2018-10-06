@@ -135,6 +135,18 @@
     <Compile Include="FormMainMenu.Designer.cs">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMenuCandidatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuCandidatos.Designer.cs">
+      <DependentUpon>FormMenuCandidatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenuEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuEmpleados.Designer.cs">
+      <DependentUpon>FormMenuEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPuestos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +156,7 @@
     <Compile Include="Idiomas.cs">
       <DependentUpon>RRHH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Puestos.cs">
@@ -191,6 +204,12 @@
     <EmbeddedResource Include="FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMenuCandidatos.resx">
+      <DependentUpon>FormMenuCandidatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenuEmpleados.resx">
+      <DependentUpon>FormMenuEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPuestos.resx">
       <DependentUpon>FormPuestos.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +252,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Exhibitor-Log-in-icon.png" />
+    <None Include="Resources\99166-200.png" />
+    <None Include="Resources\login-icon-png-27.png" />
+    <None Include="Resources\14-empleo.png" />
+    <None Include="Resources\mantenim.jpg" />
     <Content Include="RRHH.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RRHH.edmx</DependentUpon>

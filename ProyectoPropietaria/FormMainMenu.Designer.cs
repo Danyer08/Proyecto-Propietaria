@@ -35,12 +35,13 @@
             this.puestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.competenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.capacitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.candidatosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.experienciaLaborlaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.candidatosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroButtonSesion = new MetroFramework.Controls.MetroButton();
             this.pictureBoxMainMenu = new System.Windows.Forms.PictureBox();
-            this.competenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.capacitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainMenu)).BeginInit();
             this.SuspendLayout();
@@ -74,8 +75,8 @@
             this.competenciasToolStripMenuItem,
             this.capacitacionesToolStripMenuItem1});
             this.mantenimientosToolStripMenuItem.Name = "mantenimientosToolStripMenuItem";
-            this.mantenimientosToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
-            this.mantenimientosToolStripMenuItem.Text = "Administracion";
+            this.mantenimientosToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.mantenimientosToolStripMenuItem.Text = "Menu Empleados";
             // 
             // candidatosToolStripMenuItem
             // 
@@ -105,14 +106,28 @@
             this.idiomasToolStripMenuItem1.Text = "Idiomas";
             this.idiomasToolStripMenuItem1.Click += new System.EventHandler(this.idiomasToolStripMenuItem1_Click);
             // 
+            // competenciasToolStripMenuItem
+            // 
+            this.competenciasToolStripMenuItem.Name = "competenciasToolStripMenuItem";
+            this.competenciasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.competenciasToolStripMenuItem.Text = "Competencias";
+            this.competenciasToolStripMenuItem.Click += new System.EventHandler(this.competenciasToolStripMenuItem_Click);
+            // 
+            // capacitacionesToolStripMenuItem1
+            // 
+            this.capacitacionesToolStripMenuItem1.Name = "capacitacionesToolStripMenuItem1";
+            this.capacitacionesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.capacitacionesToolStripMenuItem1.Text = "Capacitaciones";
+            this.capacitacionesToolStripMenuItem1.Click += new System.EventHandler(this.capacitacionesToolStripMenuItem1_Click);
+            // 
             // candidatosToolStripMenuItem1
             // 
             this.candidatosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.experienciaLaborlaToolStripMenuItem,
             this.candidatosToolStripMenuItem2});
             this.candidatosToolStripMenuItem1.Name = "candidatosToolStripMenuItem1";
-            this.candidatosToolStripMenuItem1.Size = new System.Drawing.Size(106, 20);
-            this.candidatosToolStripMenuItem1.Text = "Mantenimientos";
+            this.candidatosToolStripMenuItem1.Size = new System.Drawing.Size(113, 20);
+            this.candidatosToolStripMenuItem1.Text = "Menu Candidatos";
             this.candidatosToolStripMenuItem1.Click += new System.EventHandler(this.candidatosToolStripMenuItem1_Click);
             // 
             // experienciaLaborlaToolStripMenuItem
@@ -129,6 +144,16 @@
             this.candidatosToolStripMenuItem2.Text = "Candidatos";
             this.candidatosToolStripMenuItem2.Click += new System.EventHandler(this.candidatosToolStripMenuItem2_Click);
             // 
+            // metroButtonSesion
+            // 
+            this.metroButtonSesion.Location = new System.Drawing.Point(630, 60);
+            this.metroButtonSesion.Name = "metroButtonSesion";
+            this.metroButtonSesion.Size = new System.Drawing.Size(128, 23);
+            this.metroButtonSesion.TabIndex = 10;
+            this.metroButtonSesion.Text = "Cerrar Sesion";
+            this.metroButtonSesion.UseSelectable = true;
+            this.metroButtonSesion.Click += new System.EventHandler(this.metroButtonSesion_Click);
+            // 
             // pictureBoxMainMenu
             // 
             this.pictureBoxMainMenu.Image = global::ProyectoPropietaria.Properties.Resources.planificación_de_los_recursos_humanos;
@@ -138,31 +163,19 @@
             this.pictureBoxMainMenu.TabIndex = 9;
             this.pictureBoxMainMenu.TabStop = false;
             // 
-            // competenciasToolStripMenuItem
-            // 
-            this.competenciasToolStripMenuItem.Name = "competenciasToolStripMenuItem";
-            this.competenciasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.competenciasToolStripMenuItem.Text = "Competencias";
-            this.competenciasToolStripMenuItem.Click += new System.EventHandler(this.competenciasToolStripMenuItem_Click);
-            // 
-            // capacitacionesToolStripMenuItem1
-            // 
-            this.capacitacionesToolStripMenuItem1.Name = "capacitacionesToolStripMenuItem1";
-            this.capacitacionesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.capacitacionesToolStripMenuItem1.Text = "Capacitaciones";
-            this.capacitacionesToolStripMenuItem1.Click += new System.EventHandler(this.capacitacionesToolStripMenuItem1_Click);
-            // 
             // FormMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroButtonSesion);
             this.Controls.Add(this.pictureBoxMainMenu);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMainMenu";
-            this.Text = "Recursos Humanos";
+            this.Text = "Administrador";
+            this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
@@ -186,5 +199,6 @@
         private System.Windows.Forms.ToolStripMenuItem candidatosToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem competenciasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem capacitacionesToolStripMenuItem1;
+        private MetroFramework.Controls.MetroButton metroButtonSesion;
     }
 }

@@ -63,9 +63,59 @@ namespace ProyectoPropietaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _14_empleo {
+            get {
+                object obj = ResourceManager.GetObject("14-empleo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _99166_200 {
+            get {
+                object obj = ResourceManager.GetObject("99166-200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Director_de_RRHH_iStock_612852082__1497269276_88093_790x526 {
             get {
                 object obj = ResourceManager.GetObject("Director-de-RRHH_iStock_612852082__1497269276_88093-790x526", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exhibitor_Log_in_icon {
+            get {
+                object obj = ResourceManager.GetObject("Exhibitor-Log-in-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap login_icon_png_27 {
+            get {
+                object obj = ResourceManager.GetObject("login-icon-png-27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mantenim {
+            get {
+                object obj = ResourceManager.GetObject("mantenim", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
