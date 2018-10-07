@@ -19,5 +19,6 @@ namespace ProyectoPropietaria
         public string Puesto { get; set; }
         public System.DateTime FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFinalizacion { get; set; }
+        public string Nombre_Candidato { get; set; }
     }
 }

@@ -51,19 +51,23 @@ namespace ProyectoPropietaria
                 Descripcion = metroTextDescripcion.Text,
                 Nivel = metroComboNivel.Text,
                 FechaInicio = (DateTime)metroDateInicio.Value,
-                FechaFinalizacion =  (DateTime)metroDateFin.Value,
+                FechaFinalizacion = (DateTime)metroDateFin.Value,
                 Institucion = metroTextInstitucion.Text,
                 Idiomas = metroComboIdiomas.Text
-                
-            };
 
-            using (var context = new RRHHEntities())
+            };
+            if ((DateTime)metroDateFin.Value > (DateTime)metroDateInicio.Value)
             {
-                context.Capacitaciones.Add(capacitacion);
-                context.SaveChanges();
-                MessageBox.Show("Datos Guardados");
+                using (var context = new RRHHEntities())
+                {
+                    context.Capacitaciones.Add(capacitacion);
+                    context.SaveChanges();
+                    MessageBox.Show("Datos Guardados");
+                }
+                Refrescar();
             }
-            Refrescar();
+            else { MessageBox.Show("La fecha de inicio debe ser menor que la fecha de finalizacaion."); }
+            
         }
         public void ConsultaFlexible()
         {

@@ -34,7 +34,8 @@ namespace ProyectoPropietaria
                                        exp.Empresa,
                                        exp.Puesto,
                                        exp.FechaInicio,
-                                       exp.FechaFinalizacion
+                                       exp.FechaFinalizacion,
+                                       exp.Nombre_Candidato
                                    };
                 metroGridExperiencia.DataSource = experiencia.ToList();
             }
@@ -47,15 +48,24 @@ namespace ProyectoPropietaria
                 Empresa = metroTextEmpresa.Text,
                 Puesto = metroTextPuesto.Text,
                 FechaInicio = (DateTime)metroDateFechaInicio.Value,
-                FechaFinalizacion = (DateTime)metroDateFechaFin.Value
+                FechaFinalizacion = (DateTime)metroDateFechaFin.Value,
+                Nombre_Candidato = textBoxCandidato.Text
             };
-            using (var context = new RRHHEntities())
+            if((DateTime)metroDateFechaInicio.Value > (DateTime)metroDateFechaFin.Value)
             {
-                context.ExperienciaLaboral.Add(experiencia);
-                context.SaveChanges();
-                MessageBox.Show("Datos Guardados");
+                using (var context = new RRHHEntities())
+                {
+                    context.ExperienciaLaboral.Add(experiencia);
+                    context.SaveChanges();
+                    MessageBox.Show("Datos Guardados");
+                }
+                Refrescar();
             }
-            Refrescar();
+            else
+            {
+                MessageBox.Show("La fecha de inicio debe ser menor a la fecha de finalizacion.");
+            }
+            
         }
 
         private void metroButtonEditar_Click(object sender, EventArgs e)
@@ -71,6 +81,7 @@ namespace ProyectoPropietaria
                     expToUpdate.Puesto = metroTextPuesto.Text;
                     expToUpdate.FechaInicio = (DateTime)metroDateFechaInicio.Value;
                     expToUpdate.FechaFinalizacion = (DateTime)metroDateFechaFin.Value;
+                    expToUpdate.Nombre_Candidato = textBoxCandidato.Text;
                 }
                 context.Entry(expToUpdate).State = EntityState.Modified;
                 context.SaveChanges();
@@ -95,6 +106,7 @@ namespace ProyectoPropietaria
             metroTextPuesto.Text = selectedRow.Cells["Puesto"].Value.ToString();
             metroDateFechaInicio.Value = (DateTime)selectedRow.Cells["FechaInicio"].Value;
             metroDateFechaFin.Value = (DateTime)selectedRow.Cells["FechaFinalizacion"].Value;
+            textBoxCandidato.Text = selectedRow.Cells["Nombre_Candidato"].Value.ToString();
         }
 
         private void metroButtonEliminar_Click(object sender, EventArgs e)
@@ -120,7 +132,7 @@ namespace ProyectoPropietaria
             using (var context = new RRHHEntities())
             {
                 var experiencia = from exp in context.ExperienciaLaboral
-                                   where (exp.Empresa.StartsWith(metroTextBuscar.Text) || exp.Puesto.StartsWith(metroTextBuscar.Text))
+                                   where (exp.Empresa.StartsWith(metroTextBuscar.Text) || exp.Puesto.StartsWith(metroTextBuscar.Text) || exp.Nombre_Candidato.StartsWith(metroTextBuscar.Text))
                                    select exp;
                 metroGridExperiencia.DataSource = experiencia.ToList();
             }

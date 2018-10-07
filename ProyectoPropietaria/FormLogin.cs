@@ -18,7 +18,7 @@ namespace ProyectoPropietaria
             InitializeComponent();
         }
 
-        Login admin = new Login("Admin", "1233456");
+        Login admin = new Login("Admin", "123456");
         Login candidato = new Login("Candidato", "123456");
         Login empleado = new Login("Empleado", "123456");
 

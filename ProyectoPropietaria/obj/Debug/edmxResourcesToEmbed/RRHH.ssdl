@@ -1,48 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="RRHHModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="RRHHModelStoreContainer">
-    <EntitySet Name="Candidatos" EntityType="RRHHModel.Store.Candidatos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Capacitaciones" EntityType="RRHHModel.Store.Capacitaciones" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Departamento" EntityType="RRHHModel.Store.Departamento" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Empleados" EntityType="RRHHModel.Store.Empleados" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ExperienciaLaboral" EntityType="RRHHModel.Store.ExperienciaLaboral" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Idiomas" EntityType="RRHHModel.Store.Idiomas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Puestos" EntityType="RRHHModel.Store.Puestos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Competencias" EntityType="RRHHModel.Store.Competencias" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
+<Schema Namespace="RRHHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Candidatos">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Cedula" Type="varchar" Nullable="false" MaxLength="11" />
-    <Property Name="PuestoAspirante" Type="varchar" Nullable="false" MaxLength="30" />
-    <Property Name="Deparamento" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cedula" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="PuestoAspirante" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Deparamento" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="SalarioDeseado" Type="float" Nullable="false" />
-    <Property Name="Competencias" Type="varchar" Nullable="false" MaxLength="200" />
-    <Property Name="Capacitaciones" Type="varchar" Nullable="false" MaxLength="200" />
-    <Property Name="Experiencia" Type="varchar" Nullable="false" MaxLength="200" />
-    <Property Name="Recomendacion" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Competencias" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Capacitaciones" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Experiencia" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Recomendacion" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="Capacitaciones">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
-    <Property Name="Nivel" Type="varchar" Nullable="false" MaxLength="22" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Nivel" Type="varchar" MaxLength="22" Nullable="false" />
     <Property Name="FechaInicio" Type="datetime" Nullable="false" />
     <Property Name="FechaFinalizacion" Type="datetime" Nullable="false" />
-    <Property Name="Institucion" Type="varchar" Nullable="false" MaxLength="25" />
-    <Property Name="Idiomas" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Institucion" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Idiomas" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Competencias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Departamento">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NombreDepartamento" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="NombreDepartamento" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Empleados">
@@ -50,11 +48,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Cedula" Type="varchar" Nullable="false" MaxLength="11" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cedula" Type="varchar" MaxLength="11" Nullable="false" />
     <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
-    <Property Name="Departamento" Type="varchar" Nullable="false" MaxLength="30" />
-    <Property Name="Puesto" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Departamento" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Puesto" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Salario" Type="float" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
@@ -62,18 +60,19 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Empresa" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Puesto" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empresa" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Puesto" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="FechaInicio" Type="datetime" Nullable="false" />
-    <Property Name="FechaFinalizacion" Type="datetime" Nullable="true" />
+    <Property Name="FechaFinalizacion" Type="datetime" />
+    <Property Name="Nombre Candidato" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Idiomas">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="12" />
+    <Property Name="Nombre" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Puestos">
@@ -81,19 +80,21 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="30" />
-    <Property Name="NivelRiesgo" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="NivelRiesgo" Type="varchar" MaxLength="5" Nullable="false" />
     <Property Name="SalarioMinimo" Type="float" Nullable="false" />
     <Property Name="SalarioMaximo" Type="float" Nullable="false" />
-    <Property Name="Departamento" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Departamento" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="Competencias">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="300" />
-    <Property Name="Estado" Type="bit" Nullable="false" />
-  </EntityType>
+  <EntityContainer Name="RRHHModelStoreContainer">
+    <EntitySet Name="Candidatos" EntityType="Self.Candidatos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Capacitaciones" EntityType="Self.Capacitaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Competencias" EntityType="Self.Competencias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExperienciaLaboral" EntityType="Self.ExperienciaLaboral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Idiomas" EntityType="Self.Idiomas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puestos" EntityType="Self.Puestos" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
 </Schema>

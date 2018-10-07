@@ -48,6 +48,8 @@
             this.metroTextBuscar = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabelId = new MetroFramework.Controls.MetroLabel();
+            this.textBoxCandidato = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridExperiencia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -305,12 +307,30 @@
             this.metroLabelId.TabIndex = 16;
             this.metroLabelId.Text = ".";
             // 
+            // textBoxCandidato
+            // 
+            this.textBoxCandidato.Location = new System.Drawing.Point(366, 60);
+            this.textBoxCandidato.Name = "textBoxCandidato";
+            this.textBoxCandidato.Size = new System.Drawing.Size(173, 20);
+            this.textBoxCandidato.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(229, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Nombre de Candidato";
+            // 
             // FormExperienciaLaboral
             // 
             this.AcceptButton = this.metroButtonBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxCandidato);
             this.Controls.Add(this.metroLabelId);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroTextBuscar);
@@ -356,5 +376,7 @@
         private MetroFramework.Controls.MetroTextBox metroTextBuscar;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabelId;
+        private System.Windows.Forms.TextBox textBoxCandidato;
+        private System.Windows.Forms.Label label1;
     }
 }

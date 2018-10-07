@@ -56,6 +56,7 @@
     <EntitySetMapping Name="ExperienciaLaboral">
       <EntityTypeMapping TypeName="IsTypeOf(RRHHModel.ExperienciaLaboral)">
         <MappingFragment StoreEntitySet="ExperienciaLaboral">
+          <ScalarProperty Name="Nombre_Candidato" ColumnName="Nombre Candidato" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Empresa" ColumnName="Empresa" />
           <ScalarProperty Name="Puesto" ColumnName="Puesto" />

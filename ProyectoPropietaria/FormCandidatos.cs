@@ -259,6 +259,7 @@ namespace ProyectoPropietaria
 
         private void buttonConvertir_Click(object sender, EventArgs e)
         {
+            int canId = Convert.ToInt32(metroLabelId.Text);
             Empleados empleado = new Empleados
             {
                 Nombre = metroTextNombre.Text,
@@ -275,9 +276,13 @@ namespace ProyectoPropietaria
             {
                 context.Empleados.Add(empleado);
                 context.SaveChanges();
+
+                var candidato = context.Candidatos.Find(canId);
+                context.Candidatos.Remove(candidato);
+                context.SaveChanges();
                 MessageBox.Show("Datos Guardados");
+                Refrescar();
             }
-            Refrescar();
         }
     }
    
